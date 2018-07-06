@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('C:/Users/ysww/.android/debug.keystore')
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.ysww.cleaninggarden"
@@ -9,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        ndk{
+        ndk {
             abiFilters "armeabi"
         }
     }
