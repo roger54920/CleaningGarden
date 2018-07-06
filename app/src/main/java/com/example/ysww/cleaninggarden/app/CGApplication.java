@@ -1,7 +1,11 @@
 package com.example.ysww.cleaninggarden.app;
 
 import android.app.Application;
+import android.app.Service;
+import android.os.Vibrator;
 
+import com.baidu.mapapi.SDKInitializer;
+import com.example.ysww.cleaninggarden.app.service.LocationService;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -22,14 +26,26 @@ import javax.net.ssl.X509TrustManager;
 import cn.jpush.android.api.JPushInterface;
 import okhttp3.OkHttpClient;
 
+
 public class CGApplication extends Application {
+    public LocationService locationService;
+    public Vibrator mVibrator;
     @Override
     public void onCreate() {
         super.onCreate();
         initOkGo();
         initJPush();
+        initLocation();
     }
 
+    /**
+     * 初始化定位sdk
+     */
+    private void initLocation(){
+        locationService = new LocationService(getApplicationContext());
+        mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+        SDKInitializer.initialize(getApplicationContext());
+    }
     /**
      * 初始化 JPush
      */
