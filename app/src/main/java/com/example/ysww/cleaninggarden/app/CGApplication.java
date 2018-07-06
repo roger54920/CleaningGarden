@@ -19,15 +19,27 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 
+import cn.jpush.android.api.JPushInterface;
 import okhttp3.OkHttpClient;
 
-public class CG_App extends Application {
+public class CGApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
         initOkGo();
+        initJPush();
     }
 
+    /**
+     * 初始化 JPush
+     */
+    private void initJPush(){
+        JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);     		// 初始化 JPush
+    }
+    /**
+     * 初始化 Okgo
+     */
     private void initOkGo() {
         //---------这里给出的是示例代码,告诉你可以这么传,实际使用的时候,根据需要传,不需要就不传-------------//
 //        HttpHeaders headers = new HttpHeaders();

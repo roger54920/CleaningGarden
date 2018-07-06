@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import com.example.ysww.cleaninggarden.R;
 
+import cn.jpush.android.api.JPushInterface;
+
 public class CG_LoginActivity extends AppCompatActivity {
 
     @Override
