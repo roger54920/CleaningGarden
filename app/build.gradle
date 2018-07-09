@@ -5,6 +5,12 @@ android {
         config {
             storeFile file('C:/Users/ysww/.android/debug.keystore')
         }
+        release {
+            keyAlias 'cg'
+            keyPassword '549200'
+            storeFile file('D:/Project/保洁园/cg.jks')
+            storePassword '549200'
+        }
     }
     compileSdkVersion 26
     defaultConfig {
@@ -20,6 +26,8 @@ android {
     }
     buildTypes {
         release {
+            //引用正式签名
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -53,4 +61,6 @@ dependencies {
     implementation 'com.githang:status-bar-compat:latest.integration'
     //刷新和加载
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    //百度地图
+    implementation files('libs/BaiduLBS_Android.jar')
 }

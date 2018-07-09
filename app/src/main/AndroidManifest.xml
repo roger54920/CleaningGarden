@@ -58,13 +58,16 @@
         </activity>
 
         <!--百度地图-->
+        <!-- 声明service组件 -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
+        <!-- AK鉴权 -->
+        <!-- meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="hb7cggWb2CzG5OB67wQTmck1WR9SUiUa"></meta-data>
+            android:value="sQoO1gGKx8Tcrz6w7cr9eNsO7GGhePud" />
 
         <!--极光推送-->
         <!-- Required SDK核心功能 通知栏-->
@@ -133,7 +136,7 @@
 
         <!-- User defined.  For test only  用户自定义的广播接收器-->
         <receiver
-            android:name=".app.MyReceiver"
+            android:name=".app.custom.MyReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
